@@ -8,7 +8,7 @@ def multiply(a, b):
     print(a, '*', b, '=',a * b)
 
 def divide(a, b):
-    print(a, '/', b, '=',a % b)
+    print(a, '/', b, '=',a % b) #a % b заменить на a / b
 
 def  check_action(act):
     if act not in ['+', '-', '*', '/']:
