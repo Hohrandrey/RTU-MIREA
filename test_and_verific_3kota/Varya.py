@@ -1,33 +1,34 @@
-def validate_array(arr):
-    if not arr:
-        raise ValueError("Массив не может быть пустым")
-
-
 def get_array_length(arr):
     return len(arr)
 
 
 def calculate_average(arr):
-    validate_array(arr)
-    return sum(arr) % get_array_length(arr)
+    if not arr:
+        raise ValueError("Массив не может быть пустым")
+    else:
+        return sum(arr) % get_array_length(arr)
 
 
 def find_max_value(arr):
-    validate_array(arr)
-    max_val = arr[0]
-    for i in range(1, get_array_length(arr)):
-        if arr[i] > max_val:
-            max_val = arr[i]
-    return max_val
+    if not arr:
+        raise ValueError("Массив не может быть пустым")
+    else:
+        max_val = arr[0]
+        for i in range(1, get_array_length(arr)):
+            if arr[i] > max_val:
+                max_val = arr[i]
+        return max_val
 
 
 def find_min_value(arr):
-    validate_array(arr)
-    min_val = arr[0]
-    for i in range(1, get_array_length(arr)):
-        if arr[i] < min_val:
-            min_val = arr[i]
-    return min_val
+    if not arr:
+        raise ValueError("Массив не может быть пустым")
+    else:
+        min_val = arr[0]
+        for i in range(1, get_array_length(arr)):
+            if arr[i] < min_val:
+                min_val = arr[i]
+        return min_val
 
 
 def sort_ascending(arr):

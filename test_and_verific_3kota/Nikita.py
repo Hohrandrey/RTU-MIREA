@@ -27,7 +27,7 @@ def count_words(text):
 
 
 def count_sentences(text):
-    sentences = [s.strip() for s in re.split(r'[.!?]+', text) if s.strip()] # чтобы исправить надо в [.!?]+ заменить на [.!?,]+
+    sentences = [s.strip() for s in re.split(r'[!?]+', text) if s.strip()]# чтобы исправить надо в [!?] заменить на [.!?]
     return len(sentences)
 
 
