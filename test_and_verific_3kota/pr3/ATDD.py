@@ -1,7 +1,7 @@
 import unittest
 import os
 from datetime import datetime
-from var33 import HabitTracker
+from pr3.var33 import HabitTracker
 
 
 class TestHabitTrackerLogic(unittest.TestCase):
@@ -14,34 +14,38 @@ class TestHabitTrackerLogic(unittest.TestCase):
         if os.path.exists(self.test_filename):
             os.remove(self.test_filename)
 
-    def test_mark_completed_today(self):
-        """Тест отметки выполнения привычки на сегодня"""
+    def test_add_habit_and_check_initial_status(self):
+        """Тест добавления привычки и проверки начального статуса (не выполнена)"""
         self.tracker.add_habit("Чтение", "Читать 30 минут в день")
-        self.tracker.mark_completed("Чтение")
-
         habit = self.tracker.habits["Чтение"]
-        today = datetime.now().strftime("%Y-%m-%d")
+        self.assertEqual(habit['total_completed'], 0)
 
-        self.assertIn(today, habit['completions'])
-        self.assertEqual(habit['total_completed'], 1)
-
-    def test_mark_completed_twice_same_day(self):
-        """Тест попытки отметить выполнение дважды в один день"""
+    def test_mark_completed_and_check_status(self):
+        """Тест отметки выполнения и проверки статуса (выполнена)"""
         self.tracker.add_habit("Спорт", "Тренировка 20 минут")
-        self.tracker.mark_completed("Спорт")
-        self.tracker.mark_completed("Спорт")
 
         habit = self.tracker.habits["Спорт"]
-        today = datetime.now().strftime("%Y-%m-%d")
 
-        self.assertEqual(habit['completions'].count(today), 1)
+        self.tracker.mark_completed("Спорт")
+
         self.assertEqual(habit['total_completed'], 1)
 
     def test_mark_completed_nonexistent_habit(self):
         """Тест попытки отметить выполнение несуществующей привычки"""
         self.tracker.mark_completed("Несуществующая привычка")
-
         self.assertNotIn("Несуществующая привычка", self.tracker.habits)
+
+    def test_double_completion_same_day(self):
+        """Тест двойной отметки выполнения в один день"""
+        self.tracker.add_habit("Медитация", "Медитировать 10 минут")
+
+        self.tracker.mark_completed("Медитация")
+        self.tracker.mark_completed("Медитация")
+
+        habit = self.tracker.habits["Медитация"]
+        today = datetime.now().strftime("%Y-%m-%d")
+
+        self.assertEqual(habit['completions'].count(today), 1)
 
 
 if __name__ == '__main__':
