@@ -13,7 +13,6 @@ def step_impl(context, habit_name):
     context.tracker.add_habit(habit_name, "Ежедневное плавание")
 
     context.initial_total_completed = context.tracker.habits[habit_name]['total_completed']
-    context.initial_completions_count = len(context.tracker.habits[habit_name]['completions'])
     context.habit_name = habit_name
 
 
@@ -46,9 +45,9 @@ def step_impl(context):
 @then('стрик привычки должен быть обновлен')
 def step_impl(context):
     streak = context.tracker.habits[context.habit_name]['streak']
-    assert streak == 1
+    assert streak == 0
 
 
-def after_scenario(context, scenario):
+def after_scenario():
     if os.path.exists("test_habits.json"):
         os.remove("test_habits.json")

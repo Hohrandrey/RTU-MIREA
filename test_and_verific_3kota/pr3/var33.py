@@ -42,6 +42,7 @@ class HabitTracker:
         """Отметка выполнения привычки"""
         if name not in self.habits:
             print(f"Привычка '{name}' не найдена!")
+            return False
         else:
             today = datetime.now().strftime("%Y-%m-%d")
             habit = self.habits[name]
@@ -56,6 +57,7 @@ class HabitTracker:
 
                 self.save_habits()
                 print(f"Привычка '{name}' отмечена как выполненная!")
+            return True
 
     def update_streak(self, name):
         """Обновление текущей серии выполнений"""
