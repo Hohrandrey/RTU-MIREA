@@ -1,0 +1,710 @@
+[
+  {
+    "Sound Level": 0,
+    "Illuminance": 0,
+    "Voltage": 0,
+    "time": "2025-10-21 16:47:34.94"
+  },
+  {
+    "Sound Level": "50.26",
+    "Illuminance": "402.55",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:47:39.251094"
+  },
+  {
+    "Sound Level": "61.76",
+    "Illuminance": "404.34",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:47:44.403676"
+  },
+  {
+    "Sound Level": "58.36",
+    "Illuminance": "553.96",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:47:49.360663"
+  },
+  {
+    "Sound Level": "65.69",
+    "Illuminance": "402.55",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:47:54.684816"
+  },
+  {
+    "Sound Level": "58.31",
+    "Illuminance": "396.62",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:47:59.596838"
+  },
+  {
+    "Sound Level": "49.28",
+    "Illuminance": "390.08",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:48:04.372409"
+  },
+  {
+    "Sound Level": "45.85",
+    "Illuminance": "396.62",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:48:09.590779"
+  },
+  {
+    "Sound Level": "54.89",
+    "Illuminance": "396.02",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:48:14.387344"
+  },
+  {
+    "Sound Level": "50.37",
+    "Illuminance": "397.21",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:48:19.423504"
+  },
+  {
+    "Sound Level": "53.51",
+    "Illuminance": "398.39",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:48:24.322742"
+  },
+  {
+    "Sound Level": "59.95",
+    "Illuminance": "398.39",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:48:29.461332"
+  },
+  {
+    "Sound Level": "60.7",
+    "Illuminance": "398.39",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:48:34.559232"
+  },
+  {
+    "Sound Level": "57.61",
+    "Illuminance": "397.8",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:48:39.232003"
+  },
+  {
+    "Sound Level": "57.26",
+    "Illuminance": "394.84",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:48:44.643311"
+  },
+  {
+    "Sound Level": "49.03",
+    "Illuminance": "397.21",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:48:49.658257"
+  },
+  {
+    "Sound Level": "43.81",
+    "Illuminance": "397.21",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:48:54.683143"
+  },
+  {
+    "Sound Level": "52.1",
+    "Illuminance": "398.39",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:48:59.590860"
+  },
+  {
+    "Sound Level": "53.32",
+    "Illuminance": "394.24",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:49:04.536015"
+  },
+  {
+    "Sound Level": "54.22",
+    "Illuminance": "393.05",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:49:09.809674"
+  },
+  {
+    "Sound Level": "57.38",
+    "Illuminance": "391.87",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:49:14.819220"
+  },
+  {
+    "Sound Level": "52.97",
+    "Illuminance": "391.27",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:49:19.810823"
+  },
+  {
+    "Sound Level": "56.51",
+    "Illuminance": "390.68",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:49:24.809238"
+  },
+  {
+    "Sound Level": "59.88",
+    "Illuminance": "388.9",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:49:27.041278"
+  },
+  {
+    "Sound Level": "46.78",
+    "Illuminance": "388.9",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:49:31.811790"
+  },
+  {
+    "Sound Level": "61.53",
+    "Illuminance": "391.87",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:49:39.810756"
+  },
+  {
+    "Sound Level": "65.16",
+    "Illuminance": "375.24",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:49:44.808065"
+  },
+  {
+    "Sound Level": "62.96",
+    "Illuminance": "375.24",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:49:49.811639"
+  },
+  {
+    "Sound Level": "67.39",
+    "Illuminance": "372.27",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:49:54.809585"
+  },
+  {
+    "Sound Level": "61.48",
+    "Illuminance": "371.68",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:49:59.856894"
+  },
+  {
+    "Sound Level": "52.93",
+    "Illuminance": "376.43",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:50:04.862424"
+  },
+  {
+    "Sound Level": "58.78",
+    "Illuminance": "382.37",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:50:09.882913"
+  },
+  {
+    "Sound Level": "57.82",
+    "Illuminance": "396.02",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:50:14.810087"
+  },
+  {
+    "Sound Level": "62.1",
+    "Illuminance": "394.84",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:50:19.829060"
+  },
+  {
+    "Sound Level": "56.31",
+    "Illuminance": "387.71",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:50:24.809719"
+  },
+  {
+    "Sound Level": "50.18",
+    "Illuminance": "397.8",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:50:29.809852"
+  },
+  {
+    "Sound Level": "74",
+    "Illuminance": "251.74",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:50:34.922568"
+  },
+  {
+    "Sound Level": "49.37",
+    "Illuminance": "388.9",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:50:39.865401"
+  },
+  {
+    "Sound Level": "63.3",
+    "Illuminance": "399",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:50:44.808436"
+  },
+  {
+    "Sound Level": "68.73",
+    "Illuminance": "388.3",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:50:49.812768"
+  },
+  {
+    "Sound Level": "63.8",
+    "Illuminance": "453.03",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:50:54.810702"
+  },
+  {
+    "Sound Level": "65.38",
+    "Illuminance": "395.43",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:50:59.808947"
+  },
+  {
+    "Sound Level": "61.77",
+    "Illuminance": "1536.61",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:51:04.812139"
+  },
+  {
+    "Sound Level": "61.39",
+    "Illuminance": "394.24",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:51:09.810507"
+  },
+  {
+    "Sound Level": "67.69",
+    "Illuminance": "1871.49",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:51:14.940858"
+  },
+  {
+    "Sound Level": "68.64",
+    "Illuminance": "390.68",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:51:19.811696"
+  },
+  {
+    "Sound Level": "75.98",
+    "Illuminance": "366.93",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:51:24.838646"
+  },
+  {
+    "Sound Level": "62.2",
+    "Illuminance": "6227.24",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:51:29.819173"
+  },
+  {
+    "Sound Level": "51.96",
+    "Illuminance": "14743.99",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:51:34.810975"
+  },
+  {
+    "Sound Level": "54.42",
+    "Illuminance": "43624",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:51:39.994711"
+  },
+  {
+    "Sound Level": "48.53",
+    "Illuminance": "42730.99",
+    "Voltage": "4.106",
+    "time": "2025-10-21 16:51:44.811636"
+  },
+  {
+    "Sound Level": "42.66",
+    "Illuminance": "40317.99",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:51:49.839601"
+  },
+  {
+    "Sound Level": "61.62",
+    "Illuminance": "72826.99",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:51:54.859881"
+  },
+  {
+    "Sound Level": "67.93",
+    "Illuminance": "42407.99",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:51:59.811196"
+  },
+  {
+    "Sound Level": "63.9",
+    "Illuminance": "399",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:52:04.920269"
+  },
+  {
+    "Sound Level": "61.23",
+    "Illuminance": "397.8",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:52:09.854064"
+  },
+  {
+    "Sound Level": "50.21",
+    "Illuminance": "398.39",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:52:14.937059"
+  },
+  {
+    "Sound Level": "54.37",
+    "Illuminance": "397.21",
+    "Voltage": "4.106",
+    "time": "2025-10-21 16:52:20.003808"
+  },
+  {
+    "Sound Level": "58.84",
+    "Illuminance": "400.77",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:52:24.809559"
+  },
+  {
+    "Sound Level": "42.85",
+    "Illuminance": "460.45",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:52:29.837532"
+  },
+  {
+    "Sound Level": "49.92",
+    "Illuminance": "398.39",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:52:33.700251"
+  },
+  {
+    "Sound Level": "64.32",
+    "Illuminance": "457.47",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:52:39.907151"
+  },
+  {
+    "Sound Level": "68.27",
+    "Illuminance": "456.88",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:52:45.109238"
+  },
+  {
+    "Sound Level": "60.95",
+    "Illuminance": "427.2",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:52:50.141834"
+  },
+  {
+    "Sound Level": "50.15",
+    "Illuminance": "396.02",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:52:54.989455"
+  },
+  {
+    "Sound Level": "58.18",
+    "Illuminance": "393.05",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:53:00.088382"
+  },
+  {
+    "Sound Level": "56.01",
+    "Illuminance": "396.02",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:53:04.854878"
+  },
+  {
+    "Sound Level": "59.29",
+    "Illuminance": "395.43",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:53:09.836701"
+  },
+  {
+    "Sound Level": "55.22",
+    "Illuminance": "376.43",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:53:15.056175"
+  },
+  {
+    "Sound Level": "57.75",
+    "Illuminance": "382.96",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:53:19.937542"
+  },
+  {
+    "Sound Level": "63.7",
+    "Illuminance": "387.71",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:53:25.187161"
+  },
+  {
+    "Sound Level": "65.95",
+    "Illuminance": "383.55",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:53:30.022051"
+  },
+  {
+    "Sound Level": "58.28",
+    "Illuminance": "393.05",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:53:34.995650"
+  },
+  {
+    "Sound Level": "62.6",
+    "Illuminance": "393.05",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:53:39.954040"
+  },
+  {
+    "Sound Level": "51.77",
+    "Illuminance": "400.77",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:53:44.947250"
+  },
+  {
+    "Sound Level": "60.44",
+    "Illuminance": "396.02",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:53:49.976825"
+  },
+  {
+    "Sound Level": "58.94",
+    "Illuminance": "396.62",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:53:55.210471"
+  },
+  {
+    "Sound Level": "64.1",
+    "Illuminance": "396.02",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:54:00.201522"
+  },
+  {
+    "Sound Level": "67.19",
+    "Illuminance": "396.62",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:54:05.156887"
+  },
+  {
+    "Sound Level": "68.11",
+    "Illuminance": "402.55",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:54:09.899202"
+  },
+  {
+    "Sound Level": "59.06",
+    "Illuminance": "398.39",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:54:14.857906"
+  },
+  {
+    "Sound Level": "65.36",
+    "Illuminance": "390.08",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:54:20.229534"
+  },
+  {
+    "Sound Level": "52.91",
+    "Illuminance": "393.05",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:54:25.082203"
+  },
+  {
+    "Sound Level": "57.83",
+    "Illuminance": "391.87",
+    "Voltage": "4.106",
+    "time": "2025-10-21 16:54:30.315670"
+  },
+  {
+    "Sound Level": "51.22",
+    "Illuminance": "396.62",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:54:35.347293"
+  },
+  {
+    "Sound Level": "54.13",
+    "Illuminance": "399.59",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:54:40.340887"
+  },
+  {
+    "Sound Level": "58.22",
+    "Illuminance": "403.15",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:54:45.258244"
+  },
+  {
+    "Sound Level": "51.84",
+    "Illuminance": "21507.99",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:54:50.231916"
+  },
+  {
+    "Sound Level": "58.34",
+    "Illuminance": "5790.24",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:54:54.999510"
+  },
+  {
+    "Sound Level": "53.66",
+    "Illuminance": "62414.99",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:55:00.044014"
+  },
+  {
+    "Sound Level": "42.69",
+    "Illuminance": "79268",
+    "Voltage": "4.106",
+    "time": "2025-10-21 16:55:05.422881"
+  },
+  {
+    "Sound Level": "68.33",
+    "Illuminance": "78355.99",
+    "Voltage": "4.106",
+    "time": "2025-10-21 16:55:10.052117"
+  },
+  {
+    "Sound Level": "46.57",
+    "Illuminance": "77899.99",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:55:15.376912"
+  },
+  {
+    "Sound Level": "59.96",
+    "Illuminance": "77633.99",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:55:20.266844"
+  },
+  {
+    "Sound Level": "54.5",
+    "Illuminance": "77310.99",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:55:25.251426"
+  },
+  {
+    "Sound Level": "70.25",
+    "Illuminance": "57512.99",
+    "Voltage": "4.106",
+    "time": "2025-10-21 16:55:30.141482"
+  },
+  {
+    "Sound Level": "51.45",
+    "Illuminance": "55365.99",
+    "Voltage": "4.106",
+    "time": "2025-10-21 16:55:35.447412"
+  },
+  {
+    "Sound Level": "56.15",
+    "Illuminance": "399.59",
+    "Voltage": "4.106",
+    "time": "2025-10-21 16:55:39.990381"
+  },
+  {
+    "Sound Level": "61.61",
+    "Illuminance": "454.21",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:55:45.070965"
+  },
+  {
+    "Sound Level": "67.13",
+    "Illuminance": "455.1",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:55:50.430160"
+  },
+  {
+    "Sound Level": "49.35",
+    "Illuminance": "458.66",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:55:55.253858"
+  },
+  {
+    "Sound Level": "51.67",
+    "Illuminance": "458.66",
+    "Voltage": "4.106",
+    "time": "2025-10-21 16:56:00.282054"
+  },
+  {
+    "Sound Level": "60.8",
+    "Illuminance": "459.85",
+    "Voltage": "4.106",
+    "time": "2025-10-21 16:56:05.128939"
+  },
+  {
+    "Sound Level": "57.42",
+    "Illuminance": "458.07",
+    "Voltage": "4.106",
+    "time": "2025-10-21 16:56:10.393809"
+  },
+  {
+    "Sound Level": "52.73",
+    "Illuminance": "458.66",
+    "Voltage": "4.106",
+    "time": "2025-10-21 16:56:15.463680"
+  },
+  {
+    "Sound Level": "52.16",
+    "Illuminance": "459.26",
+    "Voltage": "4.106",
+    "time": "2025-10-21 16:56:20.089656"
+  },
+  {
+    "Sound Level": "60.87",
+    "Illuminance": "457.47",
+    "Voltage": "4.106",
+    "time": "2025-10-21 16:56:25.173802"
+  },
+  {
+    "Sound Level": "47.74",
+    "Illuminance": "461.04",
+    "Voltage": "4.106",
+    "time": "2025-10-21 16:56:30.120691"
+  },
+  {
+    "Sound Level": "54.58",
+    "Illuminance": "461.04",
+    "Voltage": "4.106",
+    "time": "2025-10-21 16:56:35.551572"
+  },
+  {
+    "Sound Level": "47.17",
+    "Illuminance": "460.45",
+    "Voltage": "4.106",
+    "time": "2025-10-21 16:56:40.182871"
+  },
+  {
+    "Sound Level": "45.97",
+    "Illuminance": "461.04",
+    "Voltage": "4.106",
+    "time": "2025-10-21 16:56:45.252296"
+  },
+  {
+    "Sound Level": "48.92",
+    "Illuminance": "454.8",
+    "Voltage": "4.106",
+    "time": "2025-10-21 16:56:50.112312"
+  },
+  {
+    "Sound Level": "56.56",
+    "Illuminance": "0.14",
+    "Voltage": "4.107",
+    "time": "2025-10-21 16:56:55.222475"
+  },
+  {
+    "Sound Level": "50.79",
+    "Illuminance": "458.07",
+    "Voltage": "4.106",
+    "time": "2025-10-21 16:57:00.551791"
+  },
+  {
+    "Sound Level": "54",
+    "Illuminance": "459.85",
+    "Voltage": "4.106",
+    "time": "2025-10-21 16:57:05.310123"
+  },
+  {
+    "Sound Level": "42.87",
+    "Illuminance": "459.26",
+    "Voltage": "4.106",
+    "time": "2025-10-21 16:57:10.191955"
+  },
+  {
+    "Sound Level": "43.41",
+    "Illuminance": "455.99",
+    "Voltage": "4.106",
+    "time": "2025-10-21 16:57:15.438138"
+  },
+  {
+    "Sound Level": "59.47",
+    "Illuminance": "451.83",
+    "Voltage": "4.106",
+    "time": "2025-10-21 16:57:20.430662"
+  }
+]
