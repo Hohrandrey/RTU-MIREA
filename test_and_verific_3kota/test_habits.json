@@ -1,11 +1,11 @@
 {
   "Плавание": {
     "description": "Ежедневное плавание",
-    "created_date": "2025-10-24",
+    "created_date": "2025-10-30",
     "completions": [
-      "2025-10-24"
+      "2025-10-30"
     ],
-    "streak": 0,
+    "streak": 1,
     "total_completed": 1
   }
 }
