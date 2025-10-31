@@ -79,6 +79,7 @@ class HabitTracker:
                     break
 
                 habit['streak'] = current_streak
+                self.save_habits()
 
     def show_statistics(self):
         """Просмотр статистики по всем привычкам"""

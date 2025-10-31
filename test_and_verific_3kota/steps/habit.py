@@ -46,8 +46,3 @@ def step_impl(context):
 def step_impl(context):
     streak = context.tracker.habits[context.habit_name]['streak']
     assert streak == 0
-
-
-def after_scenario():
-    if os.path.exists("test_habits.json"):
-        os.remove("test_habits.json")

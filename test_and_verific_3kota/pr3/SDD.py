@@ -44,9 +44,8 @@ class TestHabitTrackerLogic(unittest.TestCase):
         self.tracker.mark_completed("Дыхательные практики")
 
         habit = self.tracker.habits["Дыхательные практики"]
-        today = datetime.now().strftime("%Y-%m-%d")
 
-        self.assertEqual(habit['completions'].count(today), 1)
+        self.assertEqual(habit['total_completed'], 1)
 
 
 if __name__ == '__main__':

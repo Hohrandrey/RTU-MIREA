@@ -7,10 +7,12 @@ from pr3.var33 import HabitTracker
 class TestHabitTrackerLogic(unittest.TestCase):
 
     def setUp(self):
+        """Создание временного файла test_habits.json для тестов"""
         self.test_filename = "test_habits.json"
         self.tracker = HabitTracker(self.test_filename)
 
     def tearDown(self):
+        """Удаляет временный файл test_habits.json, если он существует"""
         if os.path.exists(self.test_filename):
             os.remove(self.test_filename)
 
@@ -43,9 +45,8 @@ class TestHabitTrackerLogic(unittest.TestCase):
         self.tracker.mark_completed("Медитация")
 
         habit = self.tracker.habits["Медитация"]
-        today = datetime.now().strftime("%Y-%m-%d")
 
-        self.assertEqual(habit['completions'].count(today), 1)
+        self.assertEqual(habit['total_completed'], 1)
 
 
 if __name__ == '__main__':
