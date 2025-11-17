@@ -1,0 +1,14 @@
+************* Module pr4-python
+pr4-python.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+pr4-python.py:1:0: C0103: Module name "pr4-python" doesn't conform to snake_case naming style (invalid-name)
+pr4-python.py:1:0: C0116: Missing function or method docstring (missing-function-docstring)
+pr4-python.py:5:0: C0116: Missing function or method docstring (missing-function-docstring)
+pr4-python.py:9:0: C0116: Missing function or method docstring (missing-function-docstring)
+pr4-python.py:13:0: C0116: Missing function or method docstring (missing-function-docstring)
+pr4-python.py:20:0: C0116: Missing function or method docstring (missing-function-docstring)
+pr4-python.py:20:18: W0621: Redefining name 'act' from outer scope (line 40) (redefined-outer-name)
+pr4-python.py:45:4: W0702: No exception type(s) specified (bare-except)
+
+------------------------------------------------------------------
+Your code has been rated at 7.00/10 (previous run: 7.00/10, +0.00)
+
