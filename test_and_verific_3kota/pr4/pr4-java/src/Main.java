@@ -254,7 +254,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.println("\n=== КОНВЕРТЕР ВЕЛИЧИН ===");
+            System.out.println("\nКонвертер величин");
             System.out.println("1 - Температура\t2 - Время");
             System.out.println("3 - Масса\t4 - Длина");
             System.out.println("0 - Выход");
