@@ -1,19 +1,19 @@
-src\Main.java:3:	NoPackage:	All classes, interfaces, enums and annotations must belong to a named package
-src\Main.java:3:	UseUtilityClass:	All methods are static. Consider adding a private no-args constructor to prevent instantiation.
-src\Main.java:6:	CloseResource:	Ensure that resources like this Scanner object are closed after use
-src\Main.java:6:	LocalVariableNamingConventions:	The local variable name 'temp_scan' doesn't match '[a-z][a-zA-Z0-9]*'
-src\Main.java:12:	LocalVariableNamingConventions:	The local variable name 'temp_var' doesn't match '[a-z][a-zA-Z0-9]*'
-src\Main.java:16:	LocalVariableNamingConventions:	The local variable name 'temp_C' doesn't match '[a-z][a-zA-Z0-9]*'
-src\Main.java:17:	LocalVariableNamingConventions:	The local variable name 'res_temp_F' doesn't match '[a-z][a-zA-Z0-9]*'
-src\Main.java:27:	LocalVariableNamingConventions:	The local variable name 'temp_F' doesn't match '[a-z][a-zA-Z0-9]*'
-src\Main.java:28:	LocalVariableNamingConventions:	The local variable name 'res_temp_C' doesn't match '[a-z][a-zA-Z0-9]*'
-src\Main.java:45:	CloseResource:	Ensure that resources like this Scanner object are closed after use
-src\Main.java:45:	LocalVariableNamingConventions:	The local variable name 'time_scan' doesn't match '[a-z][a-zA-Z0-9]*'
-src\Main.java:52:	LocalVariableNamingConventions:	The local variable name 'time_var' doesn't match '[a-z][a-zA-Z0-9]*'
-src\Main.java:107:	CloseResource:	Ensure that resources like this Scanner object are closed after use
-src\Main.java:107:	LocalVariableNamingConventions:	The local variable name 'mass_scan' doesn't match '[a-z][a-zA-Z0-9]*'
-src\Main.java:114:	LocalVariableNamingConventions:	The local variable name 'mass_var' doesn't match '[a-z][a-zA-Z0-9]*'
-src\Main.java:169:	CloseResource:	Ensure that resources like this Scanner object are closed after use
-src\Main.java:169:	LocalVariableNamingConventions:	The local variable name 'length_scan' doesn't match '[a-z][a-zA-Z0-9]*'
-src\Main.java:177:	LocalVariableNamingConventions:	The local variable name 'length_var' doesn't match '[a-z][a-zA-Z0-9]*'
-src\Main.java:254:	CloseResource:	Ensure that resources like this Scanner object are closed after use
+.\src\Main.java:3:	NoPackage:	All classes, interfaces, enums and annotations must belong to a named package
+.\src\Main.java:3:	UseUtilityClass:	All methods are static. Consider adding a private no-args constructor to prevent instantiation.
+.\src\Main.java:6:	CloseResource:	Ensure that resources like this Scanner object are closed after use
+.\src\Main.java:6:	LocalVariableNamingConventions:	The local variable name 'temp_scan' doesn't match '[a-z][a-zA-Z0-9]*'
+.\src\Main.java:12:	LocalVariableNamingConventions:	The local variable name 'temp_var' doesn't match '[a-z][a-zA-Z0-9]*'
+.\src\Main.java:16:	LocalVariableNamingConventions:	The local variable name 'temp_C' doesn't match '[a-z][a-zA-Z0-9]*'
+.\src\Main.java:17:	LocalVariableNamingConventions:	The local variable name 'res_temp_F' doesn't match '[a-z][a-zA-Z0-9]*'
+.\src\Main.java:27:	LocalVariableNamingConventions:	The local variable name 'temp_F' doesn't match '[a-z][a-zA-Z0-9]*'
+.\src\Main.java:28:	LocalVariableNamingConventions:	The local variable name 'res_temp_C' doesn't match '[a-z][a-zA-Z0-9]*'
+.\src\Main.java:45:	CloseResource:	Ensure that resources like this Scanner object are closed after use
+.\src\Main.java:45:	LocalVariableNamingConventions:	The local variable name 'time_scan' doesn't match '[a-z][a-zA-Z0-9]*'
+.\src\Main.java:52:	LocalVariableNamingConventions:	The local variable name 'time_var' doesn't match '[a-z][a-zA-Z0-9]*'
+.\src\Main.java:107:	CloseResource:	Ensure that resources like this Scanner object are closed after use
+.\src\Main.java:107:	LocalVariableNamingConventions:	The local variable name 'mass_scan' doesn't match '[a-z][a-zA-Z0-9]*'
+.\src\Main.java:114:	LocalVariableNamingConventions:	The local variable name 'mass_var' doesn't match '[a-z][a-zA-Z0-9]*'
+.\src\Main.java:169:	CloseResource:	Ensure that resources like this Scanner object are closed after use
+.\src\Main.java:169:	LocalVariableNamingConventions:	The local variable name 'length_scan' doesn't match '[a-z][a-zA-Z0-9]*'
+.\src\Main.java:177:	LocalVariableNamingConventions:	The local variable name 'length_var' doesn't match '[a-z][a-zA-Z0-9]*'
+.\src\Main.java:254:	CloseResource:	Ensure that resources like this Scanner object are closed after use

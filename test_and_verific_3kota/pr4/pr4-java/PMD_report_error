@@ -1,0 +1,20 @@
+.\src\Main_copy.java:3:	NoPackage:	All classes, interfaces, enums and annotations must belong to a named package
+.\src\Main_copy.java:6:	UnusedPrivateField:	Avoid unused private fields such as 'unusedVariable'.
+.\src\Main_copy.java:9:	CloseResource:	Ensure that resources like this Scanner object are closed after use
+.\src\Main_copy.java:9:	LocalVariableNamingConventions:	The local variable name 'temp_scan' doesn't match '[a-z][a-zA-Z0-9]*'
+.\src\Main_copy.java:15:	LocalVariableNamingConventions:	The local variable name 'temp_var' doesn't match '[a-z][a-zA-Z0-9]*'
+.\src\Main_copy.java:19:	LocalVariableNamingConventions:	The local variable name 'temp_C' doesn't match '[a-z][a-zA-Z0-9]*'
+.\src\Main_copy.java:21:	LocalVariableNamingConventions:	The local variable name 'res_temp_F' doesn't match '[a-z][a-zA-Z0-9]*'
+.\src\Main_copy.java:31:	LocalVariableNamingConventions:	The local variable name 'temp_F' doesn't match '[a-z][a-zA-Z0-9]*'
+.\src\Main_copy.java:32:	LocalVariableNamingConventions:	The local variable name 'res_temp_C' doesn't match '[a-z][a-zA-Z0-9]*'
+.\src\Main_copy.java:57:	CloseResource:	Ensure that resources like this Scanner object are closed after use
+.\src\Main_copy.java:57:	LocalVariableNamingConventions:	The local variable name 'time_scan' doesn't match '[a-z][a-zA-Z0-9]*'
+.\src\Main_copy.java:64:	LocalVariableNamingConventions:	The local variable name 'time_var' doesn't match '[a-z][a-zA-Z0-9]*'
+.\src\Main_copy.java:119:	CloseResource:	Ensure that resources like this Scanner object are closed after use
+.\src\Main_copy.java:119:	LocalVariableNamingConventions:	The local variable name 'mass_scan' doesn't match '[a-z][a-zA-Z0-9]*'
+.\src\Main_copy.java:126:	LocalVariableNamingConventions:	The local variable name 'mass_var' doesn't match '[a-z][a-zA-Z0-9]*'
+.\src\Main_copy.java:181:	CloseResource:	Ensure that resources like this Scanner object are closed after use
+.\src\Main_copy.java:181:	LocalVariableNamingConventions:	The local variable name 'length_scan' doesn't match '[a-z][a-zA-Z0-9]*'
+.\src\Main_copy.java:189:	LocalVariableNamingConventions:	The local variable name 'length_var' doesn't match '[a-z][a-zA-Z0-9]*'
+.\src\Main_copy.java:266:	CloseResource:	Ensure that resources like this Scanner object are closed after use
+.\src\Main_copy.java:287:	UnnecessarySemicolon:	Unnecessary semicolon
