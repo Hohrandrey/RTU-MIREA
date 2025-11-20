@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class Main_copy {
 
     // ОШИБКА 1: Неиспользуемая переменная (нарушение стандартов кодирования)
     private int unusedVariable = 42;
@@ -284,7 +284,7 @@ public class Main {
                     case 0 -> {
                         System.out.println("До свидания!");
                         // ОШИБКА 5: Синтаксическая ошибка - лишняя точка с запятой
-                        return;;
+                        return;
                     }
                     default -> System.out.println("Неверный выбор! Доступные варианты: 0-5");
                 }

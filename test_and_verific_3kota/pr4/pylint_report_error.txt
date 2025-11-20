@@ -1,5 +1,4 @@
 ************* Module pr4-python-copy
-pr4-python-copy.py:53:0: C0304: Final newline missing (missing-final-newline)
 pr4-python-copy.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 pr4-python-copy.py:1:0: C0103: Module name "pr4-python-copy" doesn't conform to snake_case naming style (invalid-name)
 pr4-python-copy.py:1:0: C0116: Missing function or method docstring (missing-function-docstring)
@@ -12,6 +11,6 @@ pr4-python-copy.py:21:20: W0621: Redefining name 'act' from outer scope (line 41
 pr4-python-copy.py:48:4: W0702: No exception type(s) specified (bare-except)
 pr4-python-copy.py:53:0: C0103: Constant name "unused_variable" doesn't conform to UPPER_CASE naming style (invalid-name)
 
------------------------------------
-Your code has been rated at 6.25/10
+------------------------------------------------------------------
+Your code has been rated at 6.56/10 (previous run: 6.25/10, +0.31)
 
