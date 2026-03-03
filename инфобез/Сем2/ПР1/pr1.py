@@ -2,66 +2,54 @@ import random
 
 DB_FILE = "users.txt"
 
-def simple_hash(password):
-    """
-    Хеширование пароля:
-    1. Переводим пароль в двоичную запись
-    2. Режем на кусочки по 16 бит
-    3. Если последний кусок не кратен 16 - добавляем 1 и нули
-    4. Добавляем дополнительный блок с длиной исходного пароля в байтах
-    """
-    block_size = 16
 
-    if isinstance(password, str):
-        password = password.encode('utf-8')
+def custom_hash(text, z0=0):
+    if isinstance(text, str):
+        text = text.encode('utf-8')
 
-    password_length = len(password)
-
-    binary_password = ''
-    for byte in password:
-        binary_password += format(byte, '08b')
-
+    bits = ''
+    for byte in text:
+        bits += format(byte, '08b')
 
     blocks = []
-    for i in range(0, len(binary_password), block_size):
-        block = binary_password[i:i+block_size]
+    for i in range(0, len(bits), 16):
+        block_bits = bits[i:i + 16]
 
-        if len(block) < block_size:
-            block += '1'
-            block = block.ljust(block_size, '0')
+        if len(block_bits) < 16:
+            block_bits = block_bits + '1' + '0' * (15 - len(block_bits))
 
-        blocks.append(block)
+        blocks.append(int(block_bits, 2))
 
-
-    # Добавляем дополнительный блок с длиной пароля в байтах
-    length_block = format(password_length, '016b')  # 16-битное представление длины
+    length = len(text)
+    length_block = length & 0xFFFF
     blocks.append(length_block)
-    print(f"Блок с длиной пароля: {length_block}")
 
-    # Преобразуем блоки в числа и XOR-им
-    result = 0
+    z = z0 & 0xFFFF
     for block in blocks:
-        # Преобразуем двоичную строку в целое число
-        block_value = int(block, 2)
-        # Применяем XOR
-        result ^= block_value
+        z = (z ^ block) & 0xFFFF
 
-        print(f"Блок {block} -> {block_value}, промежуточный XOR: {result}")
+    return f"{z:04X}"
 
-    return result
+
+def simple_hash(password):
+    hash_hex = custom_hash(password, z0=0)
+    return int(hash_hex, 16)
 
 
 def generate_salt():
-    return random.randint(0, 2**16+1)
+    return random.randint(0, 2 ** 16 + 1)
 
 
 def login_exists(login):
-    with open(DB_FILE, 'r', encoding='utf-8') as file:
-        for line in file:
-            if line.strip():
-                stored_login = line.strip().split('\t')[0]
-                if stored_login == login:
-                    return True
+    try:
+        with open(DB_FILE, 'r', encoding='utf-8') as file:
+            for line in file:
+                if line.strip():
+                    stored_login = line.strip().split('\t')[0]
+                    if stored_login == login:
+                        return True
+    except FileNotFoundError:
+        return False
     return False
 
 
@@ -101,25 +89,29 @@ def login_user():
     login = input("Введите логин: ").strip()
 
     found = False
-    with open(DB_FILE, 'r', encoding='utf-8') as file:
-        for line in file:
-            if line.strip():
-                stored_login, stored_sum, stored_salt = line.strip().split('\t')
+    try:
+        with open(DB_FILE, 'r', encoding='utf-8') as file:
+            for line in file:
+                if line.strip():
+                    stored_login, stored_sum, stored_salt = line.strip().split('\t')
 
-                if stored_login == login:
-                    found = True
-                    stored_sum = int(stored_sum)
-                    stored_salt = int(stored_salt)
-                    password = input("Введите пароль: ")
+                    if stored_login == login:
+                        found = True
+                        stored_sum = int(stored_sum)
+                        stored_salt = int(stored_salt)
+                        password = input("Введите пароль: ")
 
-                    password_hash = simple_hash(password)
+                        password_hash = simple_hash(password)
 
-                    if stored_sum == stored_salt + password_hash:
-                        print("Авторизация успешна! Добро пожаловать!")
-                        return True
-                    else:
-                        print("Ошибка: Неверный пароль!")
-                        return False
+                        if stored_sum == stored_salt + password_hash:
+                            print("Авторизация успешна! Добро пожаловать!")
+                            return True
+                        else:
+                            print("Ошибка: Неверный пароль!")
+                            return False
+    except FileNotFoundError:
+        print("Ошибка: База данных не найдена!")
+        return False
 
     if not found:
         print("Ошибка: Пользователь с таким логином не найден!")
@@ -130,20 +122,29 @@ def login_user():
 def view_database():
     print("\nСодержимое базы данных")
 
+    try:
+        with open(DB_FILE, 'r', encoding='utf-8') as file:
+            content = file.read()
+            if content:
+                print("Логин\tСумма (соль+хеш)\tСоль")
+                for line in content.strip().split('\n'):
+                    parts = line.split('\t')
+                    if len(parts) == 3:
+                        login, total_sum, salt = parts
+                        total_sum = int(total_sum)
+                        salt = int(salt)
+                        print(f"{login}\t{total_sum}\t\t{salt}")
+            else:
+                print("База данных пуста")
+    except FileNotFoundError:
+        print("База данных не существует")
 
-    with open(DB_FILE, 'r', encoding='utf-8') as file:
-        content = file.read()
-        if content:
-            print("Логин\tСумма (соль+хеш)\tСоль")
-            for line in content.strip().split('\n'):
-                parts = line.split('\t')
-                if len(parts) == 3:
-                    print(f"{parts[0]}\t{parts[1]}\t\t{parts[2]}")
-        else:
-            print("База данных пуста")
+
+
 
 
 def main():
+
     while True:
         print("\n" + "=" * 35)
         print("Главное меню")
