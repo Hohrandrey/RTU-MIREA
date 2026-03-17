@@ -41,7 +41,7 @@ def encrypt_text(plaintext, use_russian, e, N):
         m = char_to_number(char, use_russian)
 
         if m == -1:
-            print(f"Символ '{char}' не поддерживается и будет пропущен")
+            print(f"Символ '{char}' не поддерживается")
             continue
 
         c = pow(m, e, N)
@@ -83,10 +83,6 @@ def main():
 
     use_russian = False
 
-    print("=" * 50)
-    print("ЭЛЕМЕНТАРНЫЙ RSA АЛГОРИТМ")
-    print(f"Параметры: p={p}, q={q}, N={N}, e={e}, d={d}")
-    print("=" * 50)
 
     while True:
         print("\nВыберите действие:")
