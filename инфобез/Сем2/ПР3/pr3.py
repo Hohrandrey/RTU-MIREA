@@ -37,12 +37,8 @@ def encrypt(m):
 def decrypt(c):
     p1 = pow(p, -1,q)
     q1 = pow(q, -1, p)
-    print(p1)
-    print(q1)
     cp = pow(c, (p + 1) // 4, p)
     cq = pow(c, (q + 1) // 4, q)
-    print(cp)
-    print(cq)
 
     r1 = (cp * q * q1 + cq * p * p1) % n
     r2 = n - r1
