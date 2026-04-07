@@ -159,6 +159,53 @@ def cyclic_attack_text(ciphertext_str, use_russian, e, N):
     return ''.join(decrypted_text)
 
 
+def meet_in_the_middle_attack(ciphertext_str, use_russian, e, N):
+    try:
+        numbers = [int(x) for x in ciphertext_str.split()]
+    except ValueError:
+        print("Ошибка: Введите целые числа через пробел!")
+        return None
+
+    B = 5000
+    if N < B * B:
+        B = int(math.isqrt(N)) + 1
+
+
+    decrypted_text = []
+
+    for c in numbers:
+        found = False
+
+        table = {}
+        for x1 in range(1, B + 1):
+            val = pow(x1, e, N)
+            table[val] = x1
+
+
+        for x2 in range(1, B + 1):
+            x2_e = pow(x2, e, N)
+            try:
+                inv_x2_e = pow(x2_e, -1, N)
+            except ValueError:
+                continue
+
+            target = (c * inv_x2_e) % N
+
+            if target in table:
+                x1 = table[target]
+                m = (x1 * x2) % N
+
+                char = number_to_char(m, use_russian)
+                if char:
+                    decrypted_text.append(char)
+                    found = True
+                    break
+
+        if not found:
+            decrypted_text.append('?')
+            print(f"Не удалось подобрать пару (x1, x2) для блока {c} в диапазоне до {B}")
+
+    return ''.join(decrypted_text)
 
 def main():
     print("Генерация параметров криптосистемы...")
@@ -182,6 +229,7 @@ def main():
               ("Русский" if use_russian else "Английский") + ")")
         print("4 - Показать текущие ключи")
         print("5 - Циклическая атака (взлом без ключа d)")
+        print("6 - Атака 'Встреча посередине'")
         print("0 - Выйти из программы")
 
         choice = input("Ваш выбор: ").strip()
@@ -224,6 +272,17 @@ def main():
             ciphertext = input("Введите шифр текст (числа через пробел): ").strip()
 
             result = cyclic_attack_text(ciphertext, use_russian, e, N)
+            if result:
+                print(f"\nРезультат взлома:")
+                print(result)
+            else:
+                print("Атака не удалась.")
+
+        elif choice == '6':
+            print("\nАтака Встреча посередине на RSA:")
+            ciphertext = input("Введите шифр текст (числа через пробел): ").strip()
+
+            result = meet_in_the_middle_attack(ciphertext, use_russian, e, N)
             if result:
                 print(f"\nРезультат взлома:")
                 print(result)
