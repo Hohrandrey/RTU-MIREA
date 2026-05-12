@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>АСУ Розлив - Управление Рецептами</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f4f7f6; }
+        .card { box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: none; }
+        .table-hover tbody tr:hover { background-color: #e9ecef; }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-primary">⚙️ Управление рецептурами линии розлива</h2>
+
+    <div class="row">
+        <!-- Форма создания/редактирования -->
+        <div class="col-md-4">
+            <div class="card p-3 mb-3">
+                <h5 id="form-title">➕ Новая рецептура</h5>
+                <form id="recipe-form">
+                    <input type="hidden" id="r-id">
+                    <div class="mb-2">
+                        <label class="form-label">Название</label>
+                        <input type="text" class="form-control" id="r-name" required>
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Тип</label>
+                        <select class="form-select" id="r-type">
+                            <option value="CARBONATED">Газированный</option>
+                            <option value="NON_CARBONATED">Негазированный</option>
+                            <option value="WATER">Вода</option>
+                        </select>
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Версия</label>
+                        <input type="text" class="form-control" id="r-version" value="v1.0">
+                    </div>
+                    <div class="row">
+                        <div class="col"><label class="form-label">Объем (мл)</label><input type="number" class="form-control" id="r-volume"></div>
+                        <div class="col"><label class="form-label">Темп. (°C)</label><input type="number" class="form-control" id="r-temp"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Скорость (бут/мин)</label>
+                        <input type="number" class="form-control" id="r-speed">
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-success" id="btn-save">Сохранить</button>
+                        <button type="button" class="btn btn-secondary d-none" id="btn-cancel" onclick="resetForm()">Отмена</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Таблица данных -->
+        <div class="col-md-8">
+            <div class="card p-3">
+                <h5>📋 Список рецептур в БД</h5>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>ID</th>
+                                <th>Название</th>
+                                <th>Параметры</th>
+                                <th>Статус</th>
+                                <th>Действия</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recipes-table-body">
+                            <!-- JS заполнит это -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const API_URL = '/api';
+    let isEditing = false;
+
+    // Загрузка рецептов
+    async function loadRecipes() {
+        try {
+            const response = await fetch(`${API_URL}/recipes`);
+            const recipes = await response.json();
+            const tbody = document.getElementById('recipes-table-body');
+            tbody.innerHTML = '';
+
+            recipes.forEach(recipe => {
+                const p = typeof recipe.params === 'string' ? JSON.parse(recipe.params) : recipe.params;
+                const paramsStr = `<small>V:${p.volume}ml | T:${p.temp}°C</small>`;
+                const statusBadge = recipe.is_active
+                    ? '<span class="badge bg-success">Активна</span>'
+                    : '<span class="badge bg-secondary">Неактивна</span>';
+
+                const row = `
+                    <tr>
+                        <td>${recipe.id}</td>
+                        <td><strong>${recipe.name}</strong> <br><small class="text-muted">${recipe.type} (${recipe.version})</small></td>
+                        <td>${paramsStr}</td>
+                        <td>${statusBadge}</td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-primary" onclick="editRecipe(${recipe.id}, '${recipe.name}', '${recipe.type}', '${recipe.version}', ${JSON.stringify(p).replace(/"/g, '&quot;')})">✏️</button>
+                            <button class="btn btn-sm btn-outline-danger" onclick="deleteRecipe(${recipe.id})">🗑️</button>
+                            <button class="btn btn-sm btn-outline-info" onclick="toggleRecipe(${recipe.id})">⚡</button>
+                        </td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+        } catch (error) { console.error(error); }
+    }
+
+    // Сохранение (Создание или Обновление)
+    document.getElementById('recipe-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const id = document.getElementById('r-id').value;
+        const method = isEditing ? 'PUT' : 'POST';
+        const url = isEditing ? `${API_URL}/recipes/${id}` : `${API_URL}/recipes`;
+
+        const data = {
+            name: document.getElementById('r-name').value,
+            type: document.getElementById('r-type').value,
+            version: document.getElementById('r-version').value,
+            volume: document.getElementById('r-volume').value,
+            temp: document.getElementById('r-temp').value,
+            speed: document.getElementById('r-speed').value
+        };
+
+        try {
+            const response = await fetch(url, {
+                method: method,
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(data)
+            });
+            const result = await response.json();
+            if (result.status === 'success' || result.message) {
+                alert(result.message || 'Операция выполнена успешно');
+                resetForm();
+                loadRecipes();
+            } else {
+                alert('Ошибка: ' + result.error);
+            }
+        } catch (error) { alert('Ошибка сети'); }
+    });
+
+    // Подготовка формы к редактированию
+    window.editRecipe = (id, name, type, version, params) => {
+        isEditing = true;
+        document.getElementById('form-title').innerText = '✏️ Редактирование рецептуры #' + id;
+        document.getElementById('r-id').value = id;
+        document.getElementById('r-name').value = name;
+        document.getElementById('r-type').value = type;
+        document.getElementById('r-version').value = version;
+        document.getElementById('r-volume').value = params.volume;
+        document.getElementById('r-temp').value = params.temp;
+        document.getElementById('r-speed').value = params.speed;
+
+        document.getElementById('btn-save').innerText = 'Обновить';
+        document.getElementById('btn-save').classList.replace('btn-success', 'btn-warning');
+        document.getElementById('btn-cancel').classList.remove('d-none');
+    };
+
+    // Удаление
+    window.deleteRecipe = async (id) => {
+        if(!confirm('Вы уверены, что хотите удалить эту рецептуру?')) return;
+        try {
+            await fetch(`${API_URL}/recipes/${id}`, { method: 'DELETE' });
+            loadRecipes();
+        } catch (error) { alert('Ошибка удаления'); }
+    };
+
+    // Переключение статуса
+    window.toggleRecipe = async (id) => {
+        await fetch(`${API_URL}/recipes/${id}/toggle`, { method: 'POST' });
+        loadRecipes();
+    };
+
+    // Сброс формы
+    window.resetForm = () => {
+        isEditing = false;
+        document.getElementById('recipe-form').reset();
+        document.getElementById('r-id').value = '';
+        document.getElementById('form-title').innerText = '➕ Новая рецептура';
+        document.getElementById('btn-save').innerText = 'Сохранить';
+        document.getElementById('btn-save').classList.replace('btn-warning', 'btn-success');
+        document.getElementById('btn-cancel').classList.add('d-none');
+    };
+
+    loadRecipes();
+</script>
+</body>
+</html>
