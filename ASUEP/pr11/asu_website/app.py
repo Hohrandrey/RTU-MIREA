@@ -7,19 +7,19 @@ products_data = [
         "name": "Cola Classic 0.5L",
         "type": "Газированный напиток",
         "desc": "Классический вкус с точностью дозирования ±0.25%.",
-        "image": "cola.jpg"  # Только имя файла!
+        "image": "cola.jpg"
     },
     {
         "name": "Orange Juice Fresh 1.0L",
         "type": "Негазированный сок",
         "desc": "100% натуральный сок.",
-        "image": "juice.jpg" # Только имя файла!
+        "image": "juice.jpg"
     },
     {
         "name": "Mineral Water Pure 1.5L",
         "type": "Минеральная вода",
         "desc": "Артезианская вода высшей категории.",
-        "image": "water.jpg" # Только имя файла!
+        "image": "water.jpg"
     }
 ]
 
