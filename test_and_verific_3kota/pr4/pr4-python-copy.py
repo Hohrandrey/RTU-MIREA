@@ -1,37 +1,37 @@
 def add(a, b):
-    print(a, '+', b, '=', a + b)
+    print(a, "+", b, "=", a + b)
 
 
-def  subtraction(a, b):  # Лишний пробел перед именем функции (нарушение PEP8)
-    print(a, '-', b, '=',a - b)
+def subtraction(a, b):  # Лишний пробел перед именем функции (нарушение PEP8)
+    print(a, "-", b, "=", a - b)
 
 
 def multiply(a, b):
-    print(a, '*', b, '=', a * b)
-    result = a * b # Неиспользуемая переменная
+    print(a, "*", b, "=", a * b)
+    result = a * b  # Неиспользуемая переменная
 
 
 def divide(a, b):
     if b != 0:
-        print(a, '/', b, '=', a / b)
+        print(a, "/", b, "=", a / b)
     else:
-        print('Делить на 0 нельзя')
+        print("Делить на 0 нельзя")
 
 
-def    check_action(act):  # Лишние пробелы перед именем функции (нарушение PEP8)
-    if act not in ['+', '-', '*', '/']:
-        print('Такого действия нет')
+def check_action(act):  # Лишние пробелы перед именем функции (нарушение PEP8)
+    if act not in ["+", "-", "*", "/"]:
+        print("Такого действия нет")
     else:
         a = float(input("введите первое число: "))
         b = float(input("введите второе число: "))
         match act:
-            case '+':
+            case "+":
                 add(a, b)
-            case '-':
+            case "-":
                 subtraction(a, b)
-            case '*':
+            case "*":
                 multiply(a, b)
-            case '/':
+            case "/":
                 divide(a, b)
 
 

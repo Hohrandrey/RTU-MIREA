@@ -13,7 +13,7 @@ DB_CONFIG = {
     "user": "postgres",
     "password": "1234",
     "host": "localhost",
-    "port": 5432
+    "port": 5432,
 }
 
 
@@ -27,13 +27,13 @@ def get_db_connection():
         return None
 
 
-@app.route('/')
+@app.route("/")
 def index():
     """Отдает главную страницу интерфейса."""
-    return render_template('index.html')
+    return render_template("index.html")
 
 
-@app.route('/api/recipes', methods=['GET'])
+@app.route("/api/recipes", methods=["GET"])
 def get_recipes():
     """Получение списка всех рецептур из БД."""
     conn = get_db_connection()
@@ -52,15 +52,19 @@ def get_recipes():
 
         recipes = []
         for row in rows:
-            recipes.append({
-                "id": row[0],
-                "name": row[1],
-                "type": row[2],
-                "version": row[3],
-                "params": row[4],
-                "is_active": row[5],
-                "created_at": row[6].strftime('%Y-%m-%d %H:%M:%S') if row[6] else '-'
-            })
+            recipes.append(
+                {
+                    "id": row[0],
+                    "name": row[1],
+                    "type": row[2],
+                    "version": row[3],
+                    "params": row[4],
+                    "is_active": row[5],
+                    "created_at": (
+                        row[6].strftime("%Y-%m-%d %H:%M:%S") if row[6] else "-"
+                    ),
+                }
+            )
 
         cur.close()
         conn.close()
@@ -70,7 +74,7 @@ def get_recipes():
         return jsonify({"error": str(e)}), 500
 
 
-@app.route('/api/recipes', methods=['POST'])
+@app.route("/api/recipes", methods=["POST"])
 def add_recipe():
     """Добавление новой рецептуры в БД."""
     data = request.json
@@ -81,28 +85,33 @@ def add_recipe():
     try:
         cur = conn.cursor()
 
-        params_json = json.dumps({
-            "volume": data.get('volume'),
-            "temp": data.get('temp'),
-            "speed": data.get('speed')
-        })
+        params_json = json.dumps(
+            {
+                "volume": data.get("volume"),
+                "temp": data.get("temp"),
+                "speed": data.get("speed"),
+            }
+        )
 
-        cur.execute("""
+        cur.execute(
+            """
             INSERT INTO process_regulations 
             (technologist_id, regulation_name, process_type, version, process_params, is_active, created_at, updated_at)
             VALUES 
             (%s, %s, %s, %s, %s, %s, %s, %s)
             RETURNING regulation_id
-        """, (
-            1,
-            data['name'],
-            data['type'],
-            data['version'],
-            params_json,
-            True,
-            datetime.now(),
-            datetime.now()
-        ))
+        """,
+            (
+                1,
+                data["name"],
+                data["type"],
+                data["version"],
+                params_json,
+                True,
+                datetime.now(),
+                datetime.now(),
+            ),
+        )
 
         new_id = cur.fetchone()[0]
         conn.commit()
@@ -116,7 +125,7 @@ def add_recipe():
         return jsonify({"error": str(e)}), 500
 
 
-@app.route('/api/recipes/<int:recipe_id>', methods=['PUT'])
+@app.route("/api/recipes/<int:recipe_id>", methods=["PUT"])
 def update_recipe(recipe_id):
     """Обновление существующей рецептуры."""
     data = request.json
@@ -127,13 +136,16 @@ def update_recipe(recipe_id):
     try:
         cur = conn.cursor()
 
-        params_json = json.dumps({
-            "volume": data.get('volume'),
-            "temp": data.get('temp'),
-            "speed": data.get('speed')
-        })
+        params_json = json.dumps(
+            {
+                "volume": data.get("volume"),
+                "temp": data.get("temp"),
+                "speed": data.get("speed"),
+            }
+        )
 
-        cur.execute("""
+        cur.execute(
+            """
             UPDATE process_regulations 
             SET regulation_name = %s, 
                 process_type = %s, 
@@ -141,14 +153,16 @@ def update_recipe(recipe_id):
                 process_params = %s,
                 updated_at = %s
             WHERE regulation_id = %s
-        """, (
-            data['name'],
-            data['type'],
-            data['version'],
-            params_json,
-            datetime.now(),
-            recipe_id
-        ))
+        """,
+            (
+                data["name"],
+                data["type"],
+                data["version"],
+                params_json,
+                datetime.now(),
+                recipe_id,
+            ),
+        )
 
         conn.commit()
         cur.close()
@@ -161,7 +175,7 @@ def update_recipe(recipe_id):
         return jsonify({"error": str(e)}), 500
 
 
-@app.route('/api/recipes/<int:recipe_id>', methods=['DELETE'])
+@app.route("/api/recipes/<int:recipe_id>", methods=["DELETE"])
 def delete_recipe(recipe_id):
     """Удаление рецептуры."""
     conn = get_db_connection()
@@ -170,7 +184,9 @@ def delete_recipe(recipe_id):
 
     try:
         cur = conn.cursor()
-        cur.execute("DELETE FROM process_regulations WHERE regulation_id = %s", (recipe_id,))
+        cur.execute(
+            "DELETE FROM process_regulations WHERE regulation_id = %s", (recipe_id,)
+        )
         conn.commit()
         cur.close()
         conn.close()
@@ -180,7 +196,7 @@ def delete_recipe(recipe_id):
         return jsonify({"error": str(e)}), 500
 
 
-@app.route('/api/recipes/<int:recipe_id>/toggle', methods=['POST'])
+@app.route("/api/recipes/<int:recipe_id>/toggle", methods=["POST"])
 def toggle_recipe(recipe_id):
     """Переключение статуса активности."""
     conn = get_db_connection()
@@ -189,7 +205,10 @@ def toggle_recipe(recipe_id):
 
     try:
         cur = conn.cursor()
-        cur.execute("UPDATE process_regulations SET is_active = NOT is_active WHERE regulation_id = %s", (recipe_id,))
+        cur.execute(
+            "UPDATE process_regulations SET is_active = NOT is_active WHERE regulation_id = %s",
+            (recipe_id,),
+        )
         conn.commit()
         cur.close()
         conn.close()
@@ -198,5 +217,5 @@ def toggle_recipe(recipe_id):
         return jsonify({"error": str(e)}), 500
 
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=True)

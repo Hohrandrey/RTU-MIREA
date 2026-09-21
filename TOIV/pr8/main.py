@@ -10,9 +10,9 @@ KEEPALIVE = 60  # Время ожидания доставки сообщени�
 
 # Словарь с топиками и собираемыми из них параметрами
 SUB_TOPICS = {
-    '/devices/wb-msw-v3_64/controls/Sound Level': 'Sound Level',
-    '/devices/wb-msw-v3_64/controls/Illuminance': 'Illuminance',
-    '/devices/battery/controls/Voltage': 'Voltage'
+    "/devices/wb-msw-v3_64/controls/Sound Level": "Sound Level",
+    "/devices/wb-msw-v3_64/controls/Illuminance": "Illuminance",
+    "/devices/battery/controls/Voltage": "Voltage",
 }
 
 JSON_LIST = []
@@ -24,7 +24,7 @@ for value in SUB_TOPICS.values():
 
 
 def on_connect(client, userdata, flags, rc):
-    """ Функция, вызываемая при подключении к брокеру """
+    """Функция, вызываемая при подключении к брокеру"""
     print("Connected with result code " + str(rc))
 
     # Подключение ко всем заданным выше топикам
@@ -33,21 +33,21 @@ def on_connect(client, userdata, flags, rc):
 
 
 def on_message(client, userdata, msg):
-    """ Функция, вызываемая при получении сообщения от брокера """
+    """Функция, вызываемая при получении сообщения от брокера"""
     payload = msg.payload.decode()  # Основное значение
     topic = msg.topic  # Топик, из которого пришло сообщение
 
     param_name = SUB_TOPICS[topic]
     JSON_DICT[param_name] = payload
-    JSON_DICT['time'] = str(datetime.now())
+    JSON_DICT["time"] = str(datetime.now())
 
     print(topic + " " + payload)
 
 
 def save_data_periodically():
-    """ Сохраняет данные в файл каждые 5 секунд """
+    """Сохраняет данные в файл каждые 5 секунд"""
     JSON_LIST.append(JSON_DICT.copy())
-    with open('data.json', 'w') as file:
+    with open("data.json", "w") as file:
         json_string = json.dumps(JSON_LIST)
         file.write(json_string)
     # Запланировать следующий вызов через 5 секунд

@@ -23,8 +23,8 @@ class TestHabitTrackerLogic(unittest.TestCase):
         habit = self.tracker.habits["test_habit"]
         today = datetime.now().strftime("%Y-%m-%d")
 
-        self.assertIn(today, habit['completions'])
-        self.assertEqual(habit['total_completed'], 1)
+        self.assertIn(today, habit["completions"])
+        self.assertEqual(habit["total_completed"], 1)
 
     def test_mark_completed_nonexistent_habit(self):
         """Тест отметки выполнения для несуществующей привычки"""
@@ -38,7 +38,7 @@ class TestHabitTrackerLogic(unittest.TestCase):
         self.tracker.mark_completed("test_habit")
 
         habit = self.tracker.habits["test_habit"]
-        self.assertEqual(habit['total_completed'], 1)
+        self.assertEqual(habit["total_completed"], 1)
 
     def test_streak_calculation(self):
         """Тест расчета серий выполнения"""
@@ -48,20 +48,20 @@ class TestHabitTrackerLogic(unittest.TestCase):
         test_dates = [
             (datetime.now() - timedelta(days=2)).strftime("%Y-%m-%d"),
             (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d"),
-            datetime.now().strftime("%Y-%m-%d")
+            datetime.now().strftime("%Y-%m-%d"),
         ]
-        habit['completions'] = test_dates
+        habit["completions"] = test_dates
         self.tracker.update_streak("test_habit")
-        self.assertEqual(habit['streak'], 3)
+        self.assertEqual(habit["streak"], 3)
 
         test_dates = [
             (datetime.now() - timedelta(days=3)).strftime("%Y-%m-%d"),
             (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d"),
-            datetime.now().strftime("%Y-%m-%d")
+            datetime.now().strftime("%Y-%m-%d"),
         ]
-        habit['completions'] = test_dates
+        habit["completions"] = test_dates
         self.tracker.update_streak("test_habit")
-        self.assertEqual(habit['streak'], 2)
+        self.assertEqual(habit["streak"], 2)
 
     def test_multiple_habits_independent_stats(self):
         """Тест независимости статистики для разных привычек"""
@@ -72,9 +72,9 @@ class TestHabitTrackerLogic(unittest.TestCase):
         habit1 = self.tracker.habits["habit1"]
         habit2 = self.tracker.habits["habit2"]
 
-        self.assertEqual(habit1['total_completed'], 1)
-        self.assertEqual(habit2['total_completed'], 0)
+        self.assertEqual(habit1["total_completed"], 1)
+        self.assertEqual(habit2["total_completed"], 0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

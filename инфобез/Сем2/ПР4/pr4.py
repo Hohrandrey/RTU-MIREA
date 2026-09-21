@@ -53,8 +53,8 @@ def generate_rsa_params():
 
 def char_to_number(char, use_russian):
     if use_russian:
-        russian_lower = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
-        russian_upper = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
+        russian_lower = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
+        russian_upper = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
 
         if char in russian_lower:
             return russian_lower.index(char) + 1
@@ -64,21 +64,21 @@ def char_to_number(char, use_russian):
             return -1
     else:
         if char.islower():
-            return ord(char) - ord('a') + 1
+            return ord(char) - ord("a") + 1
         elif char.isupper():
-            return ord(char) - ord('A') + 1
+            return ord(char) - ord("A") + 1
         else:
             return -1
 
 
 def number_to_char(number, use_russian):
     if use_russian:
-        russian_upper = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
+        russian_upper = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
         if 1 <= number <= 33:
             return russian_upper[number - 1]
     else:
         if 1 <= number <= 26:
-            return chr(number + ord('A') - 1)
+            return chr(number + ord("A") - 1)
 
     return None
 
@@ -87,7 +87,7 @@ def encrypt_text(plaintext, use_russian, e, N):
     encrypted_numbers = []
 
     for char in plaintext:
-        if char == ' ':
+        if char == " ":
             continue
 
         m = char_to_number(char, use_russian)
@@ -118,9 +118,10 @@ def decrypt_text(ciphertext, use_russian, d, N):
             decrypted_text.append(char)
         else:
             print(f"{c} -> (не соответствует символу)")
-            decrypted_text.append('?')
+            decrypted_text.append("?")
 
-    return ''.join(decrypted_text)
+    return "".join(decrypted_text)
+
 
 def cyclic_attack_number(c, e, N):
     original_c = c
@@ -134,7 +135,6 @@ def cyclic_attack_number(c, e, N):
         if next_val == original_c:
             return current, count
 
-
         current = next_val
 
 
@@ -147,16 +147,15 @@ def cyclic_attack_text(ciphertext_str, use_russian, e, N):
 
     decrypted_text = []
 
-
     for i, c in enumerate(numbers):
         res, cycles = cyclic_attack_number(c, e, N)
         char = number_to_char(res, use_russian)
         if char:
             decrypted_text.append(char)
         else:
-            decrypted_text.append(f'[{res}]')
+            decrypted_text.append(f"[{res}]")
 
-    return ''.join(decrypted_text)
+    return "".join(decrypted_text)
 
 
 def meet_in_the_middle_attack(ciphertext_str, use_russian, e, N):
@@ -170,7 +169,6 @@ def meet_in_the_middle_attack(ciphertext_str, use_russian, e, N):
     if N < B * B:
         B = int(math.isqrt(N)) + 1
 
-
     decrypted_text = []
 
     for c in numbers:
@@ -180,7 +178,6 @@ def meet_in_the_middle_attack(ciphertext_str, use_russian, e, N):
         for x1 in range(1, B + 1):
             val = pow(x1, e, N)
             table[val] = x1
-
 
         for x2 in range(1, B + 1):
             x2_e = pow(x2, e, N)
@@ -202,10 +199,13 @@ def meet_in_the_middle_attack(ciphertext_str, use_russian, e, N):
                     break
 
         if not found:
-            decrypted_text.append('?')
-            print(f"Не удалось подобрать пару (x1, x2) для блока {c} в диапазоне до {B}")
+            decrypted_text.append("?")
+            print(
+                f"Не удалось подобрать пару (x1, x2) для блока {c} в диапазоне до {B}"
+            )
 
-    return ''.join(decrypted_text)
+    return "".join(decrypted_text)
+
 
 def main():
     print("Генерация параметров криптосистемы...")
@@ -225,8 +225,11 @@ def main():
         print("\nВыберите действие:")
         print("1 - Зашифровать текст")
         print("2 - Расшифровать шифр текст (используя секретный ключ d)")
-        print("3 - Переключить алфавит (сейчас: " +
-              ("Русский" if use_russian else "Английский") + ")")
+        print(
+            "3 - Переключить алфавит (сейчас: "
+            + ("Русский" if use_russian else "Английский")
+            + ")"
+        )
         print("4 - Показать текущие ключи")
         print("5 - Циклическая атака (взлом без ключа d)")
         print("6 - Атака 'Встреча посередине'")
@@ -234,24 +237,23 @@ def main():
 
         choice = input("Ваш выбор: ").strip()
 
-        if choice == '1':
+        if choice == "1":
             plaintext = input("Введите открытый текст: ")
 
             if not plaintext:
                 print("Ошибка: Текст не может быть пустым!")
                 continue
 
-
             encrypted = encrypt_text(plaintext, use_russian, e, N)
 
             if encrypted:
                 print(f"\nЗашифрованный текст:")
-                cipher_str = ' '.join(encrypted)
+                cipher_str = " ".join(encrypted)
                 print(cipher_str)
             else:
                 print("Не удалось зашифровать текст")
 
-        elif choice == '2':
+        elif choice == "2":
             ciphertext = input("Введите шифр текст (числа через пробел): ").strip()
 
             print("\nРезультат расшифрования с d:")
@@ -259,15 +261,17 @@ def main():
             if result:
                 print(result)
 
-        elif choice == '3':
+        elif choice == "3":
             use_russian = not use_russian
-            print(f"Алфавит переключен на: {'Русский' if use_russian else 'Английский'}")
+            print(
+                f"Алфавит переключен на: {'Русский' if use_russian else 'Английский'}"
+            )
 
-        elif choice == '4':
+        elif choice == "4":
             print(f"\nТекущие параметры:")
             print(f"N = {N}, e = {e}, d = {d}")
 
-        elif choice == '5':
+        elif choice == "5":
             print("\nЦиклическая атака RSA по (e, N):")
             ciphertext = input("Введите шифр текст (числа через пробел): ").strip()
 
@@ -278,7 +282,7 @@ def main():
             else:
                 print("Атака не удалась.")
 
-        elif choice == '6':
+        elif choice == "6":
             print("\nАтака Встреча посередине на RSA:")
             ciphertext = input("Введите шифр текст (числа через пробел): ").strip()
 
@@ -289,7 +293,7 @@ def main():
             else:
                 print("Атака не удалась.")
 
-        elif choice == '0':
+        elif choice == "0":
             print("Программа завершена.")
             break
         else:

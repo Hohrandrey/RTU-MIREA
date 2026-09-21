@@ -5,18 +5,18 @@ DB_FILE = "users.txt"
 
 def custom_hash(text, z0=0):
     if isinstance(text, str):
-        text = text.encode('utf-8')
+        text = text.encode("utf-8")
 
-    bits = ''
+    bits = ""
     for byte in text:
-        bits += format(byte, '08b')
+        bits += format(byte, "08b")
 
     blocks = []
     for i in range(0, len(bits), 16):
-        block_bits = bits[i:i + 16]
+        block_bits = bits[i : i + 16]
 
         if len(block_bits) < 16:
-            block_bits = block_bits + '1' + '0' * (15 - len(block_bits))
+            block_bits = block_bits + "1" + "0" * (15 - len(block_bits))
 
         blocks.append(int(block_bits, 2))
 
@@ -37,15 +37,15 @@ def simple_hash(password):
 
 
 def generate_salt():
-    return random.randint(0, 2 ** 16 + 1)
+    return random.randint(0, 2**16 + 1)
 
 
 def login_exists(login):
     try:
-        with open(DB_FILE, 'r', encoding='utf-8') as file:
+        with open(DB_FILE, "r", encoding="utf-8") as file:
             for line in file:
                 if line.strip():
-                    stored_login = line.strip().split('\t')[0]
+                    stored_login = line.strip().split("\t")[0]
                     if stored_login == login:
                         return True
     except FileNotFoundError:
@@ -76,7 +76,7 @@ def register():
 
     total_sum = salt + password_hash
 
-    with open(DB_FILE, 'a', encoding='utf-8') as file:
+    with open(DB_FILE, "a", encoding="utf-8") as file:
         file.write(f"{login}\t{total_sum}\t{salt}\n")
 
     print("Регистрация успешно завершена!")
@@ -90,10 +90,10 @@ def login_user():
 
     found = False
     try:
-        with open(DB_FILE, 'r', encoding='utf-8') as file:
+        with open(DB_FILE, "r", encoding="utf-8") as file:
             for line in file:
                 if line.strip():
-                    stored_login, stored_sum, stored_salt = line.strip().split('\t')
+                    stored_login, stored_sum, stored_salt = line.strip().split("\t")
 
                     if stored_login == login:
                         found = True
@@ -123,12 +123,12 @@ def view_database():
     print("\nСодержимое базы данных")
 
     try:
-        with open(DB_FILE, 'r', encoding='utf-8') as file:
+        with open(DB_FILE, "r", encoding="utf-8") as file:
             content = file.read()
             if content:
                 print("Логин\tСумма (соль+хеш)\tСоль")
-                for line in content.strip().split('\n'):
-                    parts = line.split('\t')
+                for line in content.strip().split("\n"):
+                    parts = line.split("\t")
                     if len(parts) == 3:
                         login, total_sum, salt = parts
                         total_sum = int(total_sum)
@@ -138,9 +138,6 @@ def view_database():
                 print("База данных пуста")
     except FileNotFoundError:
         print("База данных не существует")
-
-
-
 
 
 def main():
@@ -155,13 +152,13 @@ def main():
 
         choice = input("Выберите действие (1-4): ").strip()
 
-        if choice == '1':
+        if choice == "1":
             register()
-        elif choice == '2':
+        elif choice == "2":
             login_user()
-        elif choice == '3':
+        elif choice == "3":
             view_database()
-        elif choice == '4':
+        elif choice == "4":
             print("Программа завершена.")
             break
         else:

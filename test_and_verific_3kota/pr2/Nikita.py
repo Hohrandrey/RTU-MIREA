@@ -4,9 +4,9 @@ import string
 
 
 def clean_text(text):
-    text = re.sub(r'[^\w\s]', ' ', text)
-    text = re.sub(r'\d+', ' ', text)
-    text = re.sub(r'\s+', ' ', text)
+    text = re.sub(r"[^\w\s]", " ", text)
+    text = re.sub(r"\d+", " ", text)
+    text = re.sub(r"\s+", " ", text)
     return text.lower().strip()
 
 
@@ -14,7 +14,7 @@ def count_characters(text, include_spaces=True):
     if include_spaces:
         return len(text)
     else:
-        return len(text.replace(' ', ''))
+        return len(text.replace(" ", ""))
 
 
 def count_words(text):
@@ -27,7 +27,9 @@ def count_words(text):
 
 
 def count_sentences(text):
-    sentences = [s.strip() for s in re.split(r'[!?]+', text) if s.strip()]# чтобы исправить надо в [!?] заменить на [.!?]
+    sentences = [
+        s.strip() for s in re.split(r"[!?]+", text) if s.strip()
+    ]  # чтобы исправить надо в [!?] заменить на [.!?]
     return len(sentences)
 
 

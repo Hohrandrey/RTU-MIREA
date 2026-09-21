@@ -1,5 +1,12 @@
 import pytest
-from Nikita import clean_text, count_characters, count_words, count_sentences, word_frequency, text_statistics
+from Nikita import (
+    clean_text,
+    count_characters,
+    count_words,
+    count_sentences,
+    word_frequency,
+    text_statistics,
+)
 
 
 class TestTextAnalysis:
@@ -88,7 +95,7 @@ class TestTextAnalysis:
         """Тест частоты слов в нормальном тексте"""
         text = "hello world hello test world python"
         result = word_frequency(text, 3)
-        expected = {'hello': 2, 'world': 2, 'test': 1}
+        expected = {"hello": 2, "world": 2, "test": 1}
         assert result == expected
 
     def test_word_frequency_empty(self):
@@ -100,14 +107,14 @@ class TestTextAnalysis:
         """Тест чувствительности к регистру"""
         text = "Hello hello HELLO"
         result = word_frequency(text)
-        assert result == {'hello': 3}
+        assert result == {"hello": 3}
 
     def test_word_frequency_top_n(self):
         """Тест ограничения по количеству слов"""
         text = "a b c d e a b c a b a"
         result = word_frequency(text, 2)
         assert len(result) == 2
-        assert result == {'a': 4, 'b': 3}
+        assert result == {"a": 4, "b": 3}
 
     def test_edge_cases(self):
         """Тест граничных случаев"""
@@ -163,7 +170,9 @@ def test_integration():
 
     # Проверяем согласованность результатов
     word_count = count_words(sample_text)
-    freq = word_frequency(sample_text, word_count + 10)  # Берем больше, чем слов в тексте
+    freq = word_frequency(
+        sample_text, word_count + 10
+    )  # Берем больше, чем слов в тексте
     total_words_in_freq = sum(freq.values())
     assert total_words_in_freq == word_count
 

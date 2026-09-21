@@ -12,7 +12,7 @@ class HabitTracker:
         """Загрузка привычек из файла"""
         if os.path.exists(self.filename):
             try:
-                with open(self.filename, 'r', encoding='utf-8') as f:
+                with open(self.filename, "r", encoding="utf-8") as f:
                     return json.load(f)
             except:
                 return {}
@@ -20,7 +20,7 @@ class HabitTracker:
 
     def save_habits(self):
         """Сохранение привычек в файл"""
-        with open(self.filename, 'w', encoding='utf-8') as f:
+        with open(self.filename, "w", encoding="utf-8") as f:
             json.dump(self.habits, f, ensure_ascii=False, indent=2)
 
     def add_habit(self, name, description=""):
@@ -29,11 +29,11 @@ class HabitTracker:
             print(f"Привычка '{name}' уже существует!")
         else:
             self.habits[name] = {
-                'description': description,
-                'created_date': datetime.now().strftime("%Y-%m-%d"),
-                'completions': [],
-                'streak': 0,
-                'total_completed': 0
+                "description": description,
+                "created_date": datetime.now().strftime("%Y-%m-%d"),
+                "completions": [],
+                "streak": 0,
+                "total_completed": 0,
             }
             self.save_habits()
             print(f"Привычка '{name}' успешно добавлена!")
@@ -47,11 +47,11 @@ class HabitTracker:
             today = datetime.now().strftime("%Y-%m-%d")
             habit = self.habits[name]
 
-            if today in habit['completions']:
+            if today in habit["completions"]:
                 print(f"Привычка '{name}' уже выполнена сегодня!")
             else:
-                habit['completions'].append(today)
-                habit['total_completed'] += 1
+                habit["completions"].append(today)
+                habit["total_completed"] += 1
 
                 self.update_streak(name)
 
@@ -62,10 +62,10 @@ class HabitTracker:
     def update_streak(self, name):
         """Обновление текущей серии выполнений"""
         habit = self.habits[name]
-        completions = sorted(habit['completions'])
+        completions = sorted(habit["completions"])
 
         if len(completions) == 0:
-            habit['streak'] = 0
+            habit["streak"] = 0
         else:
             current_streak = 1
             current_date = datetime.strptime(completions[-1], "%Y-%m-%d")
@@ -78,7 +78,7 @@ class HabitTracker:
                 else:
                     break
 
-                habit['streak'] = current_streak
+                habit["streak"] = current_streak
                 self.save_habits()
 
     def show_statistics(self):
@@ -98,7 +98,7 @@ class HabitTracker:
 
             for name, habit in self.habits.items():
                 print(f"\nПривычка: {name}")
-                if habit['description']:
+                if habit["description"]:
                     print(f"Описание: {habit['description']}")
                 print(f"Создана: {habit['created_date']}")
                 print(f"Текущая серия: {habit['streak']} дней")
@@ -115,7 +115,7 @@ class HabitTracker:
 
             for i, name in enumerate(self.habits.keys(), 1):
                 habit = self.habits[name]
-                if datetime.now().strftime("%Y-%m-%d") in habit['completions']:
+                if datetime.now().strftime("%Y-%m-%d") in habit["completions"]:
                     status = "✅"
                 else:
                     status = "❌"
@@ -146,29 +146,30 @@ def main():
 
         choice = input("\nВыберите действие (1-6): ").strip()
 
-        if choice == '1':
+        if choice == "1":
             name = input("Введите название привычки: ").strip()
             description = input("Введите описание (необязательно): ").strip()
             tracker.add_habit(name, description)
-        elif choice == '2':
+        elif choice == "2":
             tracker.show_habits()
             if tracker.habits:
                 name = input("\nВведите название привычки для отметки: ").strip()
                 tracker.mark_completed(name)
-        elif choice == '3':
+        elif choice == "3":
             tracker.show_habits()
-        elif choice == '4':
+        elif choice == "4":
             tracker.show_statistics()
-        elif choice == '5':
+        elif choice == "5":
             tracker.show_habits()
             if tracker.habits:
                 name = input("\nВведите название привычки для удаления: ").strip()
                 tracker.delete_habit(name)
-        elif choice == '0':
+        elif choice == "0":
             print("До свидания!")
             break
         else:
             print("Неверный выбор! Попробуйте снова.")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

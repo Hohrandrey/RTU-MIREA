@@ -1,5 +1,5 @@
 def get_array_length(arr):
-    return len(arr)-1
+    return len(arr) - 1
 
 
 def calculate_average(arr):

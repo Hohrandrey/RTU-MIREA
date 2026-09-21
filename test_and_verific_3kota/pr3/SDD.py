@@ -18,18 +18,18 @@ class TestHabitTrackerLogic(unittest.TestCase):
         """Тест добавления привычки рисования и проверки начального статуса (не выполнена) на основе таблицы спецификаций"""
         self.tracker.add_habit("Рисование", "Рисовать 15 минут в день")
         habit = self.tracker.habits["Рисование"]
-        self.assertEqual(habit['total_completed'], 0)
+        self.assertEqual(habit["total_completed"], 0)
 
     def test_calligraphy_habit_complete_cycle(self):
         """Тест полного цикла выполнения привычки чистописания на основе таблицы спецификаций"""
         self.tracker.add_habit("Чистописание", "Практика каллиграфии 10 минут")
 
         habit = self.tracker.habits["Чистописание"]
-        self.assertEqual(habit['total_completed'], 0)
+        self.assertEqual(habit["total_completed"], 0)
 
         self.tracker.mark_completed("Чистописание")
 
-        self.assertEqual(habit['total_completed'], 1)
+        self.assertEqual(habit["total_completed"], 1)
 
     def test_check_status_nonexistent_habit(self):
         """Тест проверки статуса несуществующей привычки на основе таблицы спецификаций"""
@@ -45,8 +45,8 @@ class TestHabitTrackerLogic(unittest.TestCase):
 
         habit = self.tracker.habits["Дыхательные практики"]
 
-        self.assertEqual(habit['total_completed'], 1)
+        self.assertEqual(habit["total_completed"], 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

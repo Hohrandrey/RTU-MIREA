@@ -1,8 +1,7 @@
-
 def char_to_number(char, use_russian):
     if use_russian:
-        russian_lower = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
-        russian_upper = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
+        russian_lower = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
+        russian_upper = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
 
         if char in russian_lower:
             return russian_lower.index(char) + 1
@@ -12,21 +11,21 @@ def char_to_number(char, use_russian):
             return -1
     else:
         if char.islower():
-            return ord(char) - ord('a') + 1
+            return ord(char) - ord("a") + 1
         elif char.isupper():
-            return ord(char) - ord('A') + 1
+            return ord(char) - ord("A") + 1
         else:
             return -1
 
 
 def number_to_char(number, use_russian):
     if use_russian:
-        russian_upper = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
+        russian_upper = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
         if 1 <= number <= 33:
             return russian_upper[number - 1]
     else:
         if 1 <= number <= 26:
-            return chr(number + ord('A') - 1)
+            return chr(number + ord("A") - 1)
 
     return None
 
@@ -35,7 +34,7 @@ def encrypt_text(plaintext, use_russian, e, N):
     encrypted_numbers = []
 
     for char in plaintext:
-        if char == ' ':
+        if char == " ":
             continue
 
         m = char_to_number(char, use_russian)
@@ -69,9 +68,9 @@ def decrypt_text(ciphertext, use_russian, d, N):
             print(f"{c} -> '{char}'")
         else:
             print(f"{c} -> (не соответствует символу)")
-            decrypted_text.append('?')
+            decrypted_text.append("?")
 
-    return ''.join(decrypted_text)
+    return "".join(decrypted_text)
 
 
 def main():
@@ -83,18 +82,20 @@ def main():
 
     use_russian = False
 
-
     while True:
         print("\nВыберите действие:")
         print("1 - Зашифровать текст")
         print("2 - Расшифровать шифртекст")
-        print("3 - Переключить алфавит (сейчас: " +
-              ("Русский" if use_russian else "Английский") + ")")
+        print(
+            "3 - Переключить алфавит (сейчас: "
+            + ("Русский" if use_russian else "Английский")
+            + ")"
+        )
         print("0 - Выйти из программы")
 
         choice = input("Ваш выбор: ").strip()
 
-        if choice == '1':
+        if choice == "1":
             plaintext = input("Введите открытый текст: ")
 
             if not plaintext:
@@ -106,22 +107,23 @@ def main():
 
             if encrypted:
                 print(f"\nЗашифрованный текст:")
-                print(' '.join(encrypted))
+                print(" ".join(encrypted))
             else:
                 print("Не удалось зашифровать текст")
 
-        elif choice == '2':
+        elif choice == "2":
             ciphertext = input("Введите шифртекст (числа через пробел): ").strip()
 
             print("\nРезультат расшифрования:")
             print(decrypt_text(ciphertext, use_russian, d, N))
 
-
-        elif choice == '3':
+        elif choice == "3":
             use_russian = not use_russian
-            print(f"Алфавит переключен на: {'Русский' if use_russian else 'Английский'}")
+            print(
+                f"Алфавит переключен на: {'Русский' if use_russian else 'Английский'}"
+            )
 
-        elif choice == '0':
+        elif choice == "0":
             print("Программа завершена.")
             break
         else:

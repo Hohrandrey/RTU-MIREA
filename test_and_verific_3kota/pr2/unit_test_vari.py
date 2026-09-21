@@ -4,6 +4,7 @@ import pytest
 from io import StringIO
 from Varya import *
 
+
 class TestArrayFunctions:
 
     def test_get_array_length(self):
@@ -39,13 +40,11 @@ class TestArrayFunctions:
         assert find_max_value([-1, -5, -3]) == -1
         assert find_max_value([10]) == 10
 
-
     def test_find_min_value(self):
         """Тест для функции поиска минимума"""
         assert find_min_value([1, 5, 3, 9, 2]) == 1
         assert find_min_value([-1, -5, -3]) == -5
         assert find_min_value([10]) == 10
-
 
     def test_sort_ascending(self):
         """Тест для функции сортировки"""
@@ -55,27 +54,30 @@ class TestArrayFunctions:
 
     def test_input_array(self, monkeypatch):
         """Тест для функции ввода"""
-        monkeypatch.setattr('sys.stdin', StringIO("1 2 3\n"))
+        monkeypatch.setattr("sys.stdin", StringIO("1 2 3\n"))
         assert input_array() == [1.0, 2.0, 3.0]
 
-        monkeypatch.setattr('sys.stdin', StringIO("-1 -2.5 3\n"))
+        monkeypatch.setattr("sys.stdin", StringIO("-1 -2.5 3\n"))
         assert input_array() == [-1.0, -2.5, 3.0]
 
         input_data = "abc 123\n1 2 3\n"
-        monkeypatch.setattr('sys.stdin', StringIO(input_data))
+        monkeypatch.setattr("sys.stdin", StringIO(input_data))
 
         mock_stdout = StringIO()
-        monkeypatch.setattr(sys,'stdout', mock_stdout)
+        monkeypatch.setattr(sys, "stdout", mock_stdout)
 
         result = input_array()
         assert result == [1.0, 2.0, 3.0]
-        assert "Ошибка: введите только числа, разделенные пробелами!" in mock_stdout.getvalue()
+        assert (
+            "Ошибка: введите только числа, разделенные пробелами!"
+            in mock_stdout.getvalue()
+        )
 
         input_data = "\n1 2 3\n"
-        monkeypatch.setattr('sys.stdin', StringIO(input_data))
+        monkeypatch.setattr("sys.stdin", StringIO(input_data))
 
         mock_stdout = StringIO()
-        monkeypatch.setattr(sys, 'stdout', mock_stdout)
+        monkeypatch.setattr(sys, "stdout", mock_stdout)
 
         result = input_array()
         assert result == [1.0, 2.0, 3.0]
