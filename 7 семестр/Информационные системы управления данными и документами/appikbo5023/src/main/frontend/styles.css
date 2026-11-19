@@ -1,0 +1,15 @@
+/* Стилизация заголовка таблицы Grid */
+vaadin-grid::part(header-cell) {
+    background-color: #e0f7fa; /* Светло-голубой фон */
+    font-weight: bold;
+    color: #006064;
+}
+
+/* Компактные поля формы */
+.small-fields vaadin-text-field,
+.small-fields vaadin-combo-box,
+.small-fields vaadin-date-picker,
+.small-fields vaadin-checkbox {
+    --lumo-font-size-s: var(--lumo-font-size-xs);
+    --vaadin-input-field-height: 2em;
+}

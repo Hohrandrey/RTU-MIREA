@@ -1,0 +1,12 @@
+
+[part~="header-cell"] {
+    background-color: #e0f7fa !important;
+    color: #006064;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: var(--lumo-font-size-xs);
+}
+
+[part~="header-cell"]::after {
+    border-bottom: 2px solid #00acc1;
+}
